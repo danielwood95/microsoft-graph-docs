@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String destinationId = "deleteditems";
 
 graphClient.me().messages("AAMkADhAAATs28OAAA=")
-	.move(destinationId)
+	.move(MessageMoveParameterSet
+		.newBuilder()
+		.withDestinationId(destinationId)
+		.build())
 	.buildRequest()
 	.post();
 

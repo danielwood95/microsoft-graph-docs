@@ -10,7 +10,10 @@ String shift = "shift-value";
 
 graphClient.me().drive().items("{id}").workbook().names("{name}")
 	.range()
-	.delete(shift)
+	.delete(WorkbookRangeDeleteParameterSet
+		.newBuilder()
+		.withShift(shift)
+		.build())
 	.buildRequest()
 	.post();
 

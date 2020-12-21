@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String name = "name-value";
 
 graphClient.me().drive().items("{id}").workbook().worksheets()
-	.add(name)
+	.add(WorkbookWorksheetAddParameterSet
+		.newBuilder()
+		.withName(name)
+		.build())
 	.buildRequest()
 	.post();
 

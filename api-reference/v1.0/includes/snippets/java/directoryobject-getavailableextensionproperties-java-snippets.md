@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 Boolean isSyncedFromOnPremises = false;
 
 graphClient.directoryObjects()
-	.getAvailableExtensionProperties(isSyncedFromOnPremises)
+	.getAvailableExtensionProperties(ExtensionProperty)GetAvailableExtensionPropertiesParameterSet
+		.newBuilder()
+		.withIsSyncedFromOnPremises(isSyncedFromOnPremises)
+		.build())
 	.buildRequest()
 	.post();
 

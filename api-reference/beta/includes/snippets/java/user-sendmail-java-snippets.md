@@ -30,7 +30,11 @@ message.ccRecipients = ccRecipientsList;
 boolean saveToSentItems = false;
 
 graphClient.me()
-	.sendMail(message,saveToSentItems)
+	.sendMail(UserSendMailParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.withSaveToSentItems(saveToSentItems)
+		.build())
 	.buildRequest()
 	.post();
 

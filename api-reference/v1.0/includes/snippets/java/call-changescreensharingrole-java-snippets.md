@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 ScreenSharingRole role = ScreenSharingRole.VIEWER;
 
 graphClient.communications().calls("{id}")
-	.changeScreenSharingRole(role)
+	.changeScreenSharingRole(CallChangeScreenSharingRoleParameterSet
+		.newBuilder()
+		.withRole(role)
+		.build())
 	.buildRequest()
 	.post();
 

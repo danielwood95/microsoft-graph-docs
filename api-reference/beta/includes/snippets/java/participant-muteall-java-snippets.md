@@ -12,7 +12,11 @@ participantsList.add("");
 String clientContext = "clientContext-value";
 
 graphClient.communications().calls("{id}").participants()
-	.muteAll(participantsList,clientContext)
+	.muteAll(MuteParticipantsOperationMuteAllParameterSet
+		.newBuilder()
+		.withParticipants(participantsList)
+		.withClientContext(clientContext)
+		.build())
 	.buildRequest()
 	.post();
 

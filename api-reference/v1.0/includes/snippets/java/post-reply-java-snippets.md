@@ -59,7 +59,10 @@ AttachmentCollectionPage attachmentCollectionPage = new AttachmentCollectionPage
 post.attachments = attachmentCollectionPage;
 
 graphClient.groups("{id}").threads("{id}").posts("{id}")
-	.reply(post)
+	.reply(PostReplyParameterSet
+		.newBuilder()
+		.withPost(post)
+		.build())
 	.buildRequest()
 	.post();
 

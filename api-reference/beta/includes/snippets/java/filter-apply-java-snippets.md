@@ -22,7 +22,10 @@ criteria.values = values;
 criteria.filterOn = "filterOn-value";
 
 graphClient.me().drive().items("{id}").workbook().tables("{id|name}").columns("{id|name}").filter()
-	.apply(criteria)
+	.apply(WorkbookFilterApplyParameterSet
+		.newBuilder()
+		.withCriteria(criteria)
+		.build())
 	.buildRequest()
 	.post();
 

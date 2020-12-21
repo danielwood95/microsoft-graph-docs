@@ -13,7 +13,10 @@ body.content = "content-value";
 post.body = body;
 
 graphClient.groups("{id}").threads("{id}")
-	.reply(post)
+	.reply(ConversationThreadReplyParameterSet
+		.newBuilder()
+		.withPost(post)
+		.build())
 	.buildRequest()
 	.post();
 

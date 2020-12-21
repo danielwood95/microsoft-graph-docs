@@ -18,7 +18,11 @@ toRecipientsList.add(toRecipients);
 String comment = "Dana, hope you can make this meeting.";
 
 graphClient.me().events("{id}")
-	.forward(toRecipientsList,comment)
+	.forward(EventForwardParameterSet
+		.newBuilder()
+		.withToRecipients(toRecipientsList)
+		.withComment(comment)
+		.build())
 	.buildRequest()
 	.post();
 

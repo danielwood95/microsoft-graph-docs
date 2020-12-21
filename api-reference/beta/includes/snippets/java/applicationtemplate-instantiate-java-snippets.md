@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String displayName = "My custom name";
 
 graphClient.applicationTemplates("{id}")
-	.instantiate(displayName)
+	.instantiate(ApplicationServicePrincipalInstantiateParameterSet
+		.newBuilder()
+		.withDisplayName(displayName)
+		.build())
 	.buildRequest()
 	.post();
 

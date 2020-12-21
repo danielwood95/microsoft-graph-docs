@@ -9,7 +9,11 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String comment = "comment-value";
 
 graphClient.me().messages("{id}")
-	.replyAll(null,comment)
+	.replyAll(MessageReplyAllParameterSet
+		.newBuilder()
+		.withMessage(null)
+		.withComment(comment)
+		.build())
 	.buildRequest()
 	.post();
 

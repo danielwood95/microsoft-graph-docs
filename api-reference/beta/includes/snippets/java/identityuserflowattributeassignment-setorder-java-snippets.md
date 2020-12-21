@@ -13,7 +13,10 @@ orderList.add("extension_GUID_ShoeSize");
 newAssignmentOrder.order = orderList;
 
 graphClient.identity().b2cUserFlows("{id}").userAttributeAssignments()
-	.setOrder(newAssignmentOrder)
+	.setOrder(IdentityUserFlowAttributeAssignment)SetOrderParameterSet
+		.newBuilder()
+		.withNewAssignmentOrder(newAssignmentOrder)
+		.build())
 	.buildRequest()
 	.post();
 

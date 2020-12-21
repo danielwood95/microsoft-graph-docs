@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 Boolean persistChanges = true;
 
 graphClient.me().drive().items("{id}").workbook()
-	.createSession(persistChanges)
+	.createSession(WorkbookSessionInfoCreateSessionParameterSet
+		.newBuilder()
+		.withPersistChanges(persistChanges)
+		.build())
 	.buildRequest()
 	.post();
 

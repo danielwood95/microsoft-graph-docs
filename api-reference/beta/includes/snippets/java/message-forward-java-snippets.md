@@ -20,7 +20,12 @@ message.toRecipients = toRecipientsList;
 String comment = "Dana, just want to make sure you get this.";
 
 graphClient.me().messages("AAMkADA1MTAAAH5JaLAAA=")
-	.forward(null,message,comment)
+	.forward(MessageForwardParameterSet
+		.newBuilder()
+		.withToRecipients(null)
+		.withMessage(message)
+		.withComment(comment)
+		.build())
 	.buildRequest()
 	.post();
 

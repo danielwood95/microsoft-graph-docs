@@ -33,7 +33,17 @@ stopTonesList.add("1");
 stopTonesList.add("*");
 
 graphClient.communications().calls("{id}")
-	.recordResponse(promptsList,bargeInAllowed,initialSilenceTimeoutInSeconds,maxSilenceTimeoutInSeconds,maxRecordDurationInSeconds,playBeep,stopTonesList,clientContext)
+	.recordResponse(RecordOperationRecordResponseParameterSet
+		.newBuilder()
+		.withPrompts(promptsList)
+		.withBargeInAllowed(bargeInAllowed)
+		.withInitialSilenceTimeoutInSeconds(initialSilenceTimeoutInSeconds)
+		.withMaxSilenceTimeoutInSeconds(maxSilenceTimeoutInSeconds)
+		.withMaxRecordDurationInSeconds(maxRecordDurationInSeconds)
+		.withPlayBeep(playBeep)
+		.withStopTones(stopTonesList)
+		.withClientContext(clientContext)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -7,7 +7,12 @@ description: "Automatically generated file. DO NOT MODIFY"
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
 graphClient.me().messages("{id}")
-	.createForward(null,null,null)
+	.createForward(MessageCreateForwardParameterSet
+		.newBuilder()
+		.withToRecipients(null)
+		.withMessage(null)
+		.withComment(null)
+		.build())
 	.buildRequest()
 	.post();
 

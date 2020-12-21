@@ -31,7 +31,11 @@ internetMessageHeadersList.add(internetMessageHeaders1);
 message.internetMessageHeaders = internetMessageHeadersList;
 
 graphClient.me()
-	.sendMail(message,null)
+	.sendMail(UserSendMailParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.withSaveToSentItems(null)
+		.build())
 	.buildRequest()
 	.post();
 

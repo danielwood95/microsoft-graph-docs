@@ -29,7 +29,11 @@ MentionCollectionPage mentionCollectionPage = new MentionCollectionPage(mentionC
 message.mentions = mentionCollectionPage;
 
 graphClient.me()
-	.sendMail(message,null)
+	.sendMail(UserSendMailParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.withSaveToSentItems(null)
+		.build())
 	.buildRequest()
 	.post();
 

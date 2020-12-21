@@ -11,7 +11,10 @@ valueList.add("externalId-value1");
 valueList.add("externalId-value2");
 
 graphClient.security().tiIndicators()
-	.deleteTiIndicatorsByExternalId(valueList)
+	.deleteTiIndicatorsByExternalId(ResultInfo)DeleteTiIndicatorsByExternalIdParameterSet
+		.newBuilder()
+		.withValue(valueList)
+		.build())
 	.buildRequest()
 	.post();
 

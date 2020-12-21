@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String message = "Sorry, you can't offer this shift.";
 
 graphClient.teams("{teamId}").schedule().offerShiftRequests("{offerShiftRequestId}")
-	.decline(message)
+	.decline(ScheduleChangeRequestDeclineParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.build())
 	.buildRequest()
 	.post();
 

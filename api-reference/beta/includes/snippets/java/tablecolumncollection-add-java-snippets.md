@@ -14,7 +14,12 @@ JsonElement values = new JsonObject();
 valuesList.add(values);
 
 graphClient.me().drive().items("{id}").workbook().tables("{id|name}").columns()
-	.add(index,values,null)
+	.add(WorkbookTableColumnAddParameterSet
+		.newBuilder()
+		.withIndex(index)
+		.withValues(values)
+		.withName(null)
+		.build())
 	.buildRequest()
 	.post();
 

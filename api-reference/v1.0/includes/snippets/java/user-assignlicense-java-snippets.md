@@ -19,7 +19,11 @@ LinkedList<UUID> removeLicensesList = new LinkedList<UUID>();
 removeLicensesList.add(UUID.fromString("bea13e0c-3828-4daa-a392-28af7ff61a0f"));
 
 graphClient.me()
-	.assignLicense(addLicensesList,removeLicensesList)
+	.assignLicense(UserAssignLicenseParameterSet
+		.newBuilder()
+		.withAddLicenses(addLicensesList)
+		.withRemoveLicenses(removeLicensesList)
+		.build())
 	.buildRequest()
 	.post();
 

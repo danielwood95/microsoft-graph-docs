@@ -12,7 +12,11 @@ parentReference.id = "String";
 String name = "String";
 
 graphClient.me().drive().items("{item-id}")
-	.restore(parentReference,name)
+	.restore(DriveItemRestoreParameterSet
+		.newBuilder()
+		.withParentReference(parentReference)
+		.withName(name)
+		.build())
 	.buildRequest()
 	.post();
 

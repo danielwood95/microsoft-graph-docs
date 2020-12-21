@@ -10,7 +10,10 @@ LinkedList<String> groupIdsList = new LinkedList<String>();
 groupIdsList.add("groupIds-value");
 
 graphClient.servicePrincipals("{id}")
-	.checkMemberGroups(groupIdsList)
+	.checkMemberGroups(String)CheckMemberGroupsParameterSet
+		.newBuilder()
+		.withGroupIds(groupIdsList)
+		.build())
 	.buildRequest()
 	.post();
 

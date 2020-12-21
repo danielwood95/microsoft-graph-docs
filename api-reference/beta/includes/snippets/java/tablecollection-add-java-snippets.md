@@ -11,7 +11,11 @@ String address = "Sheet1!A1:D5";
 Boolean hasHeaders = true;
 
 graphClient.me().drive().items("{id}").workbook().tables()
-	.add(address,hasHeaders)
+	.add(WorkbookTableAddParameterSet
+		.newBuilder()
+		.withAddress(address)
+		.withHasHeaders(hasHeaders)
+		.build())
 	.buildRequest()
 	.post();
 

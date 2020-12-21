@@ -11,7 +11,13 @@ String id = "id-value";
 String groupId = "groupId-value";
 
 graphClient.me().onenote().pages("{id}")
-	.copyToSection(id,groupId,null,null)
+	.copyToSection(OnenoteOperationCopyToSectionParameterSet
+		.newBuilder()
+		.withId(id)
+		.withGroupId(groupId)
+		.withSiteCollectionId(null)
+		.withSiteId(null)
+		.build())
 	.buildRequest()
 	.post();
 

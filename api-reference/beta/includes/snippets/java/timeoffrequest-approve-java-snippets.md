@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String message = "message-value";
 
 graphClient.teams("{teamId}").schedule().timeOffRequests("{timeOffRequestId}")
-	.approve(message)
+	.approve(ScheduleChangeRequestApproveParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.build())
 	.buildRequest()
 	.post();
 

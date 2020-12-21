@@ -23,7 +23,14 @@ templateParameters.value = "Task 12322";
 templateParametersList.add(templateParameters);
 
 graphClient.users("{userId}").teamwork()
-	.sendActivityNotification(topic,activityType,null,previewText,templateParametersList)
+	.sendActivityNotification(UserTeamworkSendActivityNotificationParameterSet
+		.newBuilder()
+		.withTopic(topic)
+		.withActivityType(activityType)
+		.withChainId(null)
+		.withPreviewText(previewText)
+		.withTemplateParameters(templateParametersList)
+		.build())
 	.buildRequest()
 	.post();
 

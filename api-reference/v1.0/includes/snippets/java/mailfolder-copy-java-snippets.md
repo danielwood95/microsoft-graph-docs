@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String destinationId = "destinationId-value";
 
 graphClient.me().mailFolders("{id}")
-	.copy(destinationId)
+	.copy(MailFolderCopyParameterSet
+		.newBuilder()
+		.withDestinationId(destinationId)
+		.build())
 	.buildRequest()
 	.post();
 

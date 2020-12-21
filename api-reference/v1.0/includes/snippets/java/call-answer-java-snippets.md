@@ -15,7 +15,12 @@ LinkedList<Modality> acceptedModalitiesList = new LinkedList<Modality>();
 acceptedModalitiesList.add(Modality.AUDIO);
 
 graphClient.communications().calls("{id}")
-	.answer(callbackUri,mediaConfig,acceptedModalitiesList)
+	.answer(CallAnswerParameterSet
+		.newBuilder()
+		.withCallbackUri(callbackUri)
+		.withMediaConfig(mediaConfig)
+		.withAcceptedModalities(acceptedModalitiesList)
+		.build())
 	.buildRequest()
 	.post();
 

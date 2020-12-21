@@ -17,7 +17,12 @@ passwordCredential.secretText = "MKTr0w1...";
 String proof = "eyJ0eXAiOiJ...";
 
 graphClient.applications("{id}")
-	.addKey(keyCredential,passwordCredential,proof)
+	.addKey(KeyCredentialAddKeyParameterSet
+		.newBuilder()
+		.withKeyCredential(keyCredential)
+		.withPasswordCredential(passwordCredential)
+		.withProof(proof)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -12,7 +12,10 @@ SynchronizationSecretKeyStringValuePair credentials = new SynchronizationSecretK
 credentialsList.add(credentials);
 
 graphClient.applications("{applicationsId}").synchronization()
-	.acquireAccessToken(credentialsList)
+	.acquireAccessToken(SynchronizationAcquireAccessTokenParameterSet
+		.newBuilder()
+		.withCredentials(credentialsList)
+		.build())
 	.buildRequest()
 	.post();
 

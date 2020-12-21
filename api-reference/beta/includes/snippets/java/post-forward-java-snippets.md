@@ -18,7 +18,11 @@ toRecipients.emailAddress = emailAddress;
 toRecipientsList.add(toRecipients);
 
 graphClient.groups("{id}").threads("{id}").posts("{id}")
-	.forward(comment,toRecipientsList)
+	.forward(PostForwardParameterSet
+		.newBuilder()
+		.withComment(comment)
+		.withToRecipients(toRecipientsList)
+		.build())
 	.buildRequest()
 	.post();
 

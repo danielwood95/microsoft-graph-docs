@@ -30,7 +30,15 @@ participants.attendees = attendeesList;
 String subject = "Create a meeting with customId provided";
 
 graphClient.me().onlineMeetings()
-	.createOrGet(chatInfo,endDateTime,externalId,participants,startDateTime,subject)
+	.createOrGet(OnlineMeetingCreateOrGetParameterSet
+		.newBuilder()
+		.withChatInfo(chatInfo)
+		.withEndDateTime(endDateTime)
+		.withExternalId(externalId)
+		.withParticipants(participants)
+		.withStartDateTime(startDateTime)
+		.withSubject(subject)
+		.build())
 	.buildRequest()
 	.post();
 

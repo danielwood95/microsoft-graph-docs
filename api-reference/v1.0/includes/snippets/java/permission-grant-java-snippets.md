@@ -20,7 +20,11 @@ LinkedList<String> rolesList = new LinkedList<String>();
 rolesList.add("read");
 
 graphClient.shares("{encoded-sharing-url}").permission()
-	.grant(rolesList,recipientsList)
+	.grant(Permission)GrantParameterSet
+		.newBuilder()
+		.withRoles(rolesList)
+		.withRecipients(recipientsList)
+		.build())
 	.buildRequest()
 	.post();
 

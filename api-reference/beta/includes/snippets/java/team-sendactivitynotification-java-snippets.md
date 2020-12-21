@@ -27,7 +27,15 @@ templateParameters.value = "6788662";
 templateParametersList.add(templateParameters);
 
 graphClient.teams("{teamId}")
-	.sendActivityNotification(topic,activityType,null,previewText,templateParametersList,recipient)
+	.sendActivityNotification(TeamSendActivityNotificationParameterSet
+		.newBuilder()
+		.withTopic(topic)
+		.withActivityType(activityType)
+		.withChainId(null)
+		.withPreviewText(previewText)
+		.withTemplateParameters(templateParametersList)
+		.withRecipient(recipient)
+		.build())
 	.buildRequest()
 	.post();
 

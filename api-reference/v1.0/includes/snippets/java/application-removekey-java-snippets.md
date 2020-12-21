@@ -11,7 +11,11 @@ UUID keyId = UUID.fromString("f0b0b335-1d71-4883-8f98-567911bfdca6");
 String proof = "eyJ0eXAiOiJ...";
 
 graphClient.applications("{id}")
-	.removeKey(keyId,proof)
+	.removeKey(ApplicationRemoveKeyParameterSet
+		.newBuilder()
+		.withKeyId(keyId)
+		.withProof(proof)
+		.build())
 	.buildRequest()
 	.post();
 

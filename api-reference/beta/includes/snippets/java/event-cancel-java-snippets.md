@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String comment = "Cancelling for this week due to all hands";
 
 graphClient.me().events("{id}")
-	.cancel(comment)
+	.cancel(EventCancelParameterSet
+		.newBuilder()
+		.withComment(comment)
+		.build())
 	.buildRequest()
 	.post();
 

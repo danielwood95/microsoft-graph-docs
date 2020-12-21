@@ -30,7 +30,14 @@ String method = "method-value";
 
 graphClient.me().drive().items("{id}").workbook().names("{name}")
 	.range().sort()
-	.apply(fieldsList,matchCase,hasHeaders,orientation,method)
+	.apply(WorkbookRangeSortApplyParameterSet
+		.newBuilder()
+		.withFields(fieldsList)
+		.withMatchCase(matchCase)
+		.withHasHeaders(hasHeaders)
+		.withOrientation(orientation)
+		.withMethod(method)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -48,7 +48,10 @@ metadataList.add(metadata6);
 contentInfo.metadata = metadataList;
 
 graphClient.informationProtection().policy().labels()
-	.extractLabel(contentInfo)
+	.extractLabel(InformationProtectionContentLabelExtractLabelParameterSet
+		.newBuilder()
+		.withContentInfo(contentInfo)
+		.build())
 	.buildRequest( requestOptions )
 	.post();
 

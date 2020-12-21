@@ -11,7 +11,10 @@ valueList.add("id-value1");
 valueList.add("id-value2");
 
 graphClient.security().tiIndicators()
-	.deleteTiIndicators(valueList)
+	.deleteTiIndicators(ResultInfo)DeleteTiIndicatorsParameterSet
+		.newBuilder()
+		.withValue(valueList)
+		.build())
 	.buildRequest()
 	.post();
 

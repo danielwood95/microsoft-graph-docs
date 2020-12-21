@@ -13,7 +13,10 @@ SynchronizationJobRestartCriteria criteria = new SynchronizationJobRestartCriter
 criteria.resetScope = EnumSet.of(SynchronizationJobRestartScope.WATERMARK,SynchronizationJobRestartScope.ESCROWS,SynchronizationJobRestartScope.QUARANTINE_STATE);
 
 graphClient.servicePrincipals("{id}").synchronization().jobs("{jobId}")
-	.restart(criteria)
+	.restart(SynchronizationJobRestartParameterSet
+		.newBuilder()
+		.withCriteria(criteria)
+		.build())
 	.buildRequest( requestOptions )
 	.post();
 

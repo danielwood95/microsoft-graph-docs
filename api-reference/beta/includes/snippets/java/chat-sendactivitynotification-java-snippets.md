@@ -27,7 +27,15 @@ templateParameters.value = "6788662";
 templateParametersList.add(templateParameters);
 
 graphClient.chats("{chatId}")
-	.sendActivityNotification(topic,activityType,null,previewText,templateParametersList,recipient)
+	.sendActivityNotification(ChatSendActivityNotificationParameterSet
+		.newBuilder()
+		.withTopic(topic)
+		.withActivityType(activityType)
+		.withChainId(null)
+		.withPreviewText(previewText)
+		.withTemplateParameters(templateParametersList)
+		.withRecipient(recipient)
+		.build())
 	.buildRequest()
 	.post();
 

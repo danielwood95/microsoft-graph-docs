@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 UUID keyId = UUID.fromString("f0b0b335-1d71-4883-8f98-567911bfdca6");
 
 graphClient.servicePrincipals("{id}")
-	.removePassword(keyId)
+	.removePassword(ServicePrincipalRemovePasswordParameterSet
+		.newBuilder()
+		.withKeyId(keyId)
+		.build())
 	.buildRequest()
 	.post();
 

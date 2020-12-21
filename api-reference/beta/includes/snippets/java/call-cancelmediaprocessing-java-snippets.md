@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String clientContext = "clientContext-value";
 
 graphClient.communications().calls("{id}")
-	.cancelMediaProcessing(clientContext)
+	.cancelMediaProcessing(CancelMediaProcessingOperationCancelMediaProcessingParameterSet
+		.newBuilder()
+		.withClientContext(clientContext)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -7,7 +7,10 @@ description: "Automatically generated file. DO NOT MODIFY"
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
 ReportRootGetCredentialUsageSummaryCollectionPage getCredentialUsageSummary = graphClient.reports()
-	.getCredentialUsageSummary("D30")
+	.getCredentialUsageSummary(CredentialUsageSummary)GetCredentialUsageSummaryParameterSet
+		.newBuilder()
+		.withPeriod("D30")
+		.build())
 	.buildRequest()
 	.filter("feature eq 'registration'")
 	.get();

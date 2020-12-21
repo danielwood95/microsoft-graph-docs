@@ -7,7 +7,11 @@ description: "Automatically generated file. DO NOT MODIFY"
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
 UserReminderViewCollectionPage reminderView = graphClient.me()
-	.reminderView("2017-06-05T10:00:00.0000000","2017-06-11T11:00:00.0000000")
+	.reminderView(Reminder)ReminderViewParameterSet
+		.newBuilder()
+		.withStartDateTime("2017-06-05T10:00:00.0000000")
+		.withEndDateTime("2017-06-11T11:00:00.0000000")
+		.build())
 	.buildRequest()
 	.get();
 

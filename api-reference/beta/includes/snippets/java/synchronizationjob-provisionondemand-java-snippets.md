@@ -19,7 +19,10 @@ parameters.ruleId = "ea807875-5618-4f0a-9125-0b46a05298ca";
 parametersList.add(parameters);
 
 graphClient.servicePrincipals("{servicePrincipalsId}").synchronization().jobs("{synchronizationJobId}")
-	.provisionOnDemand(parametersList)
+	.provisionOnDemand(StringKeyStringValuePairProvisionOnDemandParameterSet
+		.newBuilder()
+		.withParameters(parametersList)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -52,7 +52,11 @@ downgradeJustification.justificationMessage = "The information has been declassi
 downgradeJustification.isDowngradeJustified = true;
 
 graphClient.informationProtection().policy().labels()
-	.evaluateRemoval(contentInfo,downgradeJustification)
+	.evaluateRemoval(InformationProtectionAction)EvaluateRemovalParameterSet
+		.newBuilder()
+		.withContentInfo(contentInfo)
+		.withDowngradeJustification(downgradeJustification)
+		.build())
 	.buildRequest( requestOptions )
 	.post();
 

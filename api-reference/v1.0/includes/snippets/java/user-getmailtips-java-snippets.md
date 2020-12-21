@@ -13,7 +13,11 @@ emailAddressesList.add("fannyd@contoso.onmicrosoft.com");
 EnumSet<MailTipsType> mailTipsOptions = EnumSet.of(MailTipsType.AUTOMATIC_REPLIES,MailTipsType.MAILBOX_FULL_STATUS);
 
 graphClient.me()
-	.getMailTips(emailAddressesList,mailTipsOptions)
+	.getMailTips(MailTips)GetMailTipsParameterSet
+		.newBuilder()
+		.withEmailAddresses(emailAddressesList)
+		.withMailTipsOptions(mailTipsOptions)
+		.build())
 	.buildRequest()
 	.post();
 

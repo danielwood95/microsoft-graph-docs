@@ -7,7 +7,11 @@ description: "Automatically generated file. DO NOT MODIFY"
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
 graphClient.users("{id | userPrincipalName}").authentication().passwordMethods("{id}")
-	.resetPassword(null,null)
+	.resetPassword(PasswordResetResponseResetPasswordParameterSet
+		.newBuilder()
+		.withNewPassword(null)
+		.withRequireChangeOnNextSignIn(null)
+		.build())
 	.buildRequest()
 	.post();
 

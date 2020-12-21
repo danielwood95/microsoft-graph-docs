@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String webUrl = "webUrl value";
 
 graphClient.me().onenote().notebooks()
-	.getNotebookFromWebUrl(webUrl)
+	.getNotebookFromWebUrl(CopyNotebookModelGetNotebookFromWebUrlParameterSet
+		.newBuilder()
+		.withWebUrl(webUrl)
+		.build())
 	.buildRequest()
 	.post();
 

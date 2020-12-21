@@ -20,7 +20,12 @@ targetsList.add(targets);
 String callbackUri = "https://bot.contoso.com/api/calls/24701998-1a73-4d42-8085-bf46ed0ae039";
 
 graphClient.communications().calls("491f0b00-ffff-4bc9-a43e-b226498ec22a")
-	.redirect(targetsList,null,callbackUri)
+	.redirect(CallRedirectParameterSet
+		.newBuilder()
+		.withTargets(targetsList)
+		.withTimeout(null)
+		.withCallbackUri(callbackUri)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -7,7 +7,10 @@ description: "Automatically generated file. DO NOT MODIFY"
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
 UserFindRoomsCollectionPage findRooms = graphClient.me()
-	.findRooms("Building2Rooms@contoso.onmicrosoft.com")
+	.findRooms(EmailAddress)FindRoomsParameterSet
+		.newBuilder()
+		.withRoomList("Building2Rooms@contoso.onmicrosoft.com")
+		.build())
 	.buildRequest()
 	.get();
 

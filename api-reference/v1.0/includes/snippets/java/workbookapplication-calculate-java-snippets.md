@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String calculationType = "calculationType-value";
 
 graphClient.me().drive().items("{id}").workbook().application()
-	.calculate(calculationType)
+	.calculate(WorkbookApplicationCalculateParameterSet
+		.newBuilder()
+		.withCalculationType(calculationType)
+		.build())
 	.buildRequest()
 	.post();
 

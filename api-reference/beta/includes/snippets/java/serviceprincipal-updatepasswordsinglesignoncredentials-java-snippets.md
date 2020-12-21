@@ -23,7 +23,11 @@ credentials1.type = "password";
 credentialsList.add(credentials1);
 
 graphClient.servicePrincipals("{id}")
-	.updatePasswordSingleSignOnCredentials(id,credentialsList)
+	.updatePasswordSingleSignOnCredentials(ServicePrincipalUpdatePasswordSingleSignOnCredentialsParameterSet
+		.newBuilder()
+		.withId(id)
+		.withCredentials(credentialsList)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -11,7 +11,11 @@ JsonElement startCell = JsonParser.parseString("startCell-value");
 JsonElement endCell = JsonParser.parseString("endCell-value");
 
 graphClient.me().drive().items("{id}").workbook().worksheets("{id|name}").charts("{name}")
-	.setPosition(startCell,endCell)
+	.setPosition(WorkbookChartSetPositionParameterSet
+		.newBuilder()
+		.withStartCell(startCell)
+		.withEndCell(endCell)
+		.build())
 	.buildRequest()
 	.post();
 

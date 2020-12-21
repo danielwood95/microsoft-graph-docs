@@ -8,7 +8,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 
 WorkbookRange workbookRange = graphClient.me().drive().items("{id}").workbook().names("{name}")
 	.range()
-	.column(5)
+	.column(WorkbookRangeColumnParameterSet
+		.newBuilder()
+		.withColumn(5)
+		.build())
 	.buildRequest()
 	.get();
 

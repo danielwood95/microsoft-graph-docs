@@ -10,7 +10,10 @@ String applyTo = "applyTo-value";
 
 graphClient.me().drive().items("{id}").workbook().names("{name}")
 	.range()
-	.clear(applyTo)
+	.clear(WorkbookRangeClearParameterSet
+		.newBuilder()
+		.withApplyTo(applyTo)
+		.build())
 	.buildRequest()
 	.post();
 

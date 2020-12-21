@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 Boolean disableUserAccounts = true;
 
 graphClient.domains("contoso.com")
-	.forceDelete(disableUserAccounts)
+	.forceDelete(DomainForceDeleteParameterSet
+		.newBuilder()
+		.withDisableUserAccounts(disableUserAccounts)
+		.build())
 	.buildRequest()
 	.post();
 

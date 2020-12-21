@@ -24,7 +24,13 @@ endTime.timeZone = "Pacific Standard Time";
 int availabilityViewInterval = 60;
 
 graphClient.me().calendar()
-	.getSchedule(schedulesList,endTime,startTime,availabilityViewInterval)
+	.getSchedule(ScheduleInformation)GetScheduleParameterSet
+		.newBuilder()
+		.withSchedules(schedulesList)
+		.withEndTime(endTime)
+		.withStartTime(startTime)
+		.withAvailabilityViewInterval(availabilityViewInterval)
+		.build())
 	.buildRequest( requestOptions )
 	.post();
 

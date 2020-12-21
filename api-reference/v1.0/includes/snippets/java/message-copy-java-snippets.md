@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String destinationId = "destinationId-value";
 
 graphClient.me().messages("{id}")
-	.copy(destinationId)
+	.copy(MessageCopyParameterSet
+		.newBuilder()
+		.withDestinationId(destinationId)
+		.build())
 	.buildRequest()
 	.post();
 

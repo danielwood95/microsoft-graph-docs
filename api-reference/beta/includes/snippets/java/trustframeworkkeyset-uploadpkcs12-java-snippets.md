@@ -11,7 +11,11 @@ String key = "Base64-encoded-pfx-content";
 String password = "password-value";
 
 graphClient.trustFramework().keySets("{id}")
-	.uploadPkcs12(key,password)
+	.uploadPkcs12(TrustFrameworkKeyUploadPkcs12ParameterSet
+		.newBuilder()
+		.withKey(key)
+		.withPassword(password)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -27,7 +27,15 @@ attendeesList.add(attendees);
 participants.attendees = attendeesList;
 
 graphClient.me().onlineMeetings()
-	.createOrGet(null,endDateTime,externalId,participants,startDateTime,subject)
+	.createOrGet(OnlineMeetingCreateOrGetParameterSet
+		.newBuilder()
+		.withChatInfo(null)
+		.withEndDateTime(endDateTime)
+		.withExternalId(externalId)
+		.withParticipants(participants)
+		.withStartDateTime(startDateTime)
+		.withSubject(subject)
+		.build())
 	.buildRequest()
 	.post();
 

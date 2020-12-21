@@ -15,7 +15,13 @@ String ticketNumber = "ticketNumber-value";
 String ticketSystem = "ticketSystem-value";
 
 graphClient.privilegedRoles("{id}")
-	.selfActivate(reason,duration,ticketNumber,ticketSystem)
+	.selfActivate(PrivilegedRoleAssignmentSelfActivateParameterSet
+		.newBuilder()
+		.withReason(reason)
+		.withDuration(duration)
+		.withTicketNumber(ticketNumber)
+		.withTicketSystem(ticketSystem)
+		.build())
 	.buildRequest()
 	.post();
 

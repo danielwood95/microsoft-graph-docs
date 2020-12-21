@@ -15,7 +15,13 @@ Long nbf = 1508969811L;
 Long exp = 1508973711L;
 
 graphClient.trustFramework().keySets("{id}")
-	.uploadSecret(use,k,nbf,exp)
+	.uploadSecret(TrustFrameworkKeyUploadSecretParameterSet
+		.newBuilder()
+		.withUse(use)
+		.withK(k)
+		.withNbf(nbf)
+		.withExp(exp)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String color = "color-value";
 
 graphClient.me().drive().items("{id}").workbook().worksheets("{id|name}").charts("{name}").format().fill()
-	.setSolidColor(color)
+	.setSolidColor(WorkbookChartFillSetSolidColorParameterSet
+		.newBuilder()
+		.withColor(color)
+		.build())
 	.buildRequest()
 	.post();
 

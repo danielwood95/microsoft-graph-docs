@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String groupId = "ffffffff-ffff-ffff-ffff-ffffffffffff";
 
 graphClient.groupLifecyclePolicies()
-	.renewGroup(groupId)
+	.renewGroup(BooleanRenewGroupParameterSet
+		.newBuilder()
+		.withGroupId(groupId)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -18,7 +18,11 @@ prompts.mediaInfo = mediaInfo;
 promptsList.add(prompts);
 
 graphClient.communications().calls("57dab8b1-894c-409a-b240-bd8beae78896")
-	.playPrompt(promptsList,clientContext)
+	.playPrompt(PlayPromptOperationPlayPromptParameterSet
+		.newBuilder()
+		.withPrompts(promptsList)
+		.withClientContext(clientContext)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -9,7 +9,11 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 RejectReason reason = RejectReason.NONE;
 
 graphClient.communications().calls("57dab8b1-894c-409a-b240-bd8beae78896")
-	.reject(reason,null)
+	.reject(CallRejectParameterSet
+		.newBuilder()
+		.withReason(reason)
+		.withCallbackUri(null)
+		.build())
 	.buildRequest()
 	.post();
 

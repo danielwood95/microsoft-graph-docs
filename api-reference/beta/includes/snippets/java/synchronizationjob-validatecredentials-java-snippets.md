@@ -19,7 +19,13 @@ credentials1.value = "password-value";
 credentialsList.add(credentials1);
 
 graphClient.servicePrincipals("{id}").synchronization().jobs("{id}")
-	.validateCredentials(null,null,null,credentialsList)
+	.validateCredentials(SynchronizationJobValidateCredentialsParameterSet
+		.newBuilder()
+		.withApplicationIdentifier(null)
+		.withTemplateId(null)
+		.withUseSavedCredentials(null)
+		.withCredentials(credentialsList)
+		.build())
 	.buildRequest()
 	.post();
 

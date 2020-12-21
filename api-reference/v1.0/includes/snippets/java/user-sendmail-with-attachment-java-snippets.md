@@ -31,7 +31,11 @@ AttachmentCollectionPage attachmentCollectionPage = new AttachmentCollectionPage
 message.attachments = attachmentCollectionPage;
 
 graphClient.me()
-	.sendMail(message,null)
+	.sendMail(UserSendMailParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.withSaveToSentItems(null)
+		.build())
 	.buildRequest()
 	.post();
 

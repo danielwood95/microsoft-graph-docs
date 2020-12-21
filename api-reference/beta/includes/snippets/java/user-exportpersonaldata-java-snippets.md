@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String storageLocation = "storageLocation-value";
 
 graphClient.users("{id}")
-	.exportPersonalData(storageLocation)
+	.exportPersonalData(UserExportPersonalDataParameterSet
+		.newBuilder()
+		.withStorageLocation(storageLocation)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 Boolean securityEnabledOnly = true;
 
 graphClient.me()
-	.getMemberObjects(securityEnabledOnly)
+	.getMemberObjects(String)GetMemberObjectsParameterSet
+		.newBuilder()
+		.withSecurityEnabledOnly(securityEnabledOnly)
+		.build())
 	.buildRequest()
 	.post();
 

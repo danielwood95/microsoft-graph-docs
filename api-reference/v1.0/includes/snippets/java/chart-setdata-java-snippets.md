@@ -11,7 +11,11 @@ JsonElement sourceData = JsonParser.parseString("sourceData-value");
 String seriesBy = "seriesBy-value";
 
 graphClient.me().drive().items("{id}").workbook().worksheets("{id|name}").charts("{name}")
-	.setData(sourceData,seriesBy)
+	.setData(WorkbookChartSetDataParameterSet
+		.newBuilder()
+		.withSourceData(sourceData)
+		.withSeriesBy(seriesBy)
+		.build())
 	.buildRequest()
 	.post();
 

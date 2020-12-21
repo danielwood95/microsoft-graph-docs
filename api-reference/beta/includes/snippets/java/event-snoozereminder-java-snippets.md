@@ -11,7 +11,10 @@ newReminderTime.dateTime = "2016-10-19T10:37:00Z";
 newReminderTime.timeZone = "timeZone-value";
 
 graphClient.me().events("{id}")
-	.snoozeReminder(newReminderTime)
+	.snoozeReminder(EventSnoozeReminderParameterSet
+		.newBuilder()
+		.withNewReminderTime(newReminderTime)
+		.build())
 	.buildRequest()
 	.post();
 

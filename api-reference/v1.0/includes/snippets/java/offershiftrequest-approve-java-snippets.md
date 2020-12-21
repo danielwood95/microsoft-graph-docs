@@ -9,7 +9,10 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 String message = "Approved!";
 
 graphClient.teams("{teamId}").schedule().offerShiftRequests("{offerShiftRequestId}")
-	.approve(message)
+	.approve(ScheduleChangeRequestApproveParameterSet
+		.newBuilder()
+		.withMessage(message)
+		.build())
 	.buildRequest()
 	.post();
 

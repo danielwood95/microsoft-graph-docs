@@ -25,7 +25,12 @@ Boolean matchCase = true;
 String method = "method-value";
 
 graphClient.me().drive().items("{id}").workbook().tables("{id|name}").sort()
-	.apply(fieldsList,matchCase,method)
+	.apply(WorkbookTableSortApplyParameterSet
+		.newBuilder()
+		.withFields(fieldsList)
+		.withMatchCase(matchCase)
+		.withMethod(method)
+		.build())
 	.buildRequest()
 	.post();
 

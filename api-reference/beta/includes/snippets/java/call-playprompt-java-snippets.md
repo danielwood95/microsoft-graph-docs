@@ -20,7 +20,12 @@ promptsList.add(prompts);
 Boolean loop = false;
 
 graphClient.communications().calls("57dab8b1-894c-409a-b240-bd8beae78896")
-	.playPrompt(promptsList,loop,clientContext)
+	.playPrompt(PlayPromptOperationPlayPromptParameterSet
+		.newBuilder()
+		.withPrompts(promptsList)
+		.withLoop(loop)
+		.withClientContext(clientContext)
+		.build())
 	.buildRequest()
 	.post();
 

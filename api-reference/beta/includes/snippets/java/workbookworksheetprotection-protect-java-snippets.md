@@ -20,7 +20,10 @@ options.allowAutoFilter = true;
 options.allowPivotTables = true;
 
 graphClient.me().drive().items("{id}").workbook().worksheets("{id|name}").protection()
-	.protect(options)
+	.protect(WorkbookWorksheetProtectionProtectParameterSet
+		.newBuilder()
+		.withOptions(options)
+		.build())
 	.buildRequest()
 	.post();
 

@@ -22,7 +22,10 @@ tiIndicatorCollectionResponse.value = valueList;
 TiIndicatorCollectionPage tiIndicatorCollectionPage = new TiIndicatorCollectionPage(tiIndicatorCollectionResponse, null);
 
 graphClient.security().tiIndicators()
-	.updateTiIndicators(valueList)
+	.updateTiIndicators(TiIndicator)UpdateTiIndicatorsParameterSet
+		.newBuilder()
+		.withValue(valueList)
+		.build())
 	.buildRequest()
 	.post();
 

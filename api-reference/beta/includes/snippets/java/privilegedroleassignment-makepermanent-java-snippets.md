@@ -13,7 +13,12 @@ String ticketNumber = "ticketNumber-value";
 String ticketSystem = "ticketSystem-value";
 
 graphClient.privilegedRoleAssignments("{id}")
-	.makePermanent(reason,ticketNumber,ticketSystem)
+	.makePermanent(PrivilegedRoleAssignmentMakePermanentParameterSet
+		.newBuilder()
+		.withReason(reason)
+		.withTicketNumber(ticketNumber)
+		.withTicketSystem(ticketSystem)
+		.build())
 	.buildRequest()
 	.post();
 
