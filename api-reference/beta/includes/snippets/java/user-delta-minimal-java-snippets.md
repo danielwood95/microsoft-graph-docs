@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new HeaderOption("Prefer", "return=minimal"));
 
-IUserDeltaCollectionPage delta = graphClient.users()
+UserDeltaCollectionPage delta = graphClient.users()
 	.delta()
 	.buildRequest( requestOptions )
 	.select("displayName,jobTitle,mobilePhone")

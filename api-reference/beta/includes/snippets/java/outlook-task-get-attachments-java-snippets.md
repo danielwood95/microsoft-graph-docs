@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IAttachmentCollectionPage attachments = graphClient.users("{id}").outlook().tasks("{id}").attachments()
+AttachmentCollectionPage attachments = graphClient.users("{id}").outlook().tasks("{id}").attachments()
 	.buildRequest()
 	.get();
 

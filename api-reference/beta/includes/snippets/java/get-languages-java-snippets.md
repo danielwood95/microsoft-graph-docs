@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-ILanguageProficiencyCollectionPage languages = graphClient.me().profile().languages()
+LanguageProficiencyCollectionPage languages = graphClient.me().profile().languages()
 	.buildRequest()
 	.get();
 

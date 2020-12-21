@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IGroupCollectionPage group = graphClient.directory().deletedItems().microsoft.graph.group()
+GroupCollectionPage group = graphClient.directory().deletedItems().microsoft.graph.group()
 	.buildRequest()
 	.get();
 

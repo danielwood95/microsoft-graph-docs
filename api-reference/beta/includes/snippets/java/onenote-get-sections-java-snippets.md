@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IOnenoteSectionCollectionPage sections = graphClient.me().onenote().sections()
+OnenoteSectionCollectionPage sections = graphClient.me().onenote().sections()
 	.buildRequest()
 	.get();
 

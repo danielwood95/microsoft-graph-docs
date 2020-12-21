@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IOAuth2PermissionGrantDeltaCollectionPage delta = graphClient.oauth2PermissionGrants()
+OAuth2PermissionGrantDeltaCollectionPage delta = graphClient.oauth2PermissionGrants()
 	.delta()
 	.buildRequest()
 	.get();

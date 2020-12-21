@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IGovernanceResourceCollectionPage resources = graphClient.privilegedAccess("azureResources").resources()
+GovernanceResourceCollectionPage resources = graphClient.privilegedAccess("azureResources").resources()
 	.buildRequest()
 	.get();
 

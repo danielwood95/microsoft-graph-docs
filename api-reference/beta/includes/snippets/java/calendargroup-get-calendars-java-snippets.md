@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-ICalendarCollectionPage calendars = graphClient.me().calendarGroups("{id}").calendars()
+CalendarCollectionPage calendars = graphClient.me().calendarGroups("{id}").calendars()
 	.buildRequest()
 	.get();
 

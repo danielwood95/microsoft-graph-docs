@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new HeaderOption("Prefer", "outlook.timezone=\"Pacific Standard Time\""));
 
-IEventCollectionPage events = graphClient.me().events()
+EventCollectionPage events = graphClient.me().events()
 	.buildRequest( requestOptions )
 	.select("subject,body,bodyPreview,organizer,attendees,start,end,location")
 	.get();

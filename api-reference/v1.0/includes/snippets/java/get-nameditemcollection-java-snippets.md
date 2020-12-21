@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IWorkbookNamedItemCollectionPage names = graphClient.me().drive().items("{id}").workbook().names()
+WorkbookNamedItemCollectionPage names = graphClient.me().drive().items("{id}").workbook().names()
 	.buildRequest()
 	.get();
 

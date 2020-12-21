@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new HeaderOption("Prefer", "return=minimal"));
 
-IGroupDeltaCollectionPage delta = graphClient.groups()
+GroupDeltaCollectionPage delta = graphClient.groups()
 	.delta()
 	.buildRequest( requestOptions )
 	.select("displayName,description,mailNickname")

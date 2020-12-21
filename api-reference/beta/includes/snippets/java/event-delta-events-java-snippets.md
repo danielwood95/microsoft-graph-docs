@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new QueryOption("startDateTime", "2020-06-12T00:00:00Z"));
 
-IEventDeltaCollectionPage delta = graphClient.me().calendar().events()
+EventDeltaCollectionPage delta = graphClient.me().calendar().events()
 	.delta()
 	.buildRequest( requestOptions )
 	.get();

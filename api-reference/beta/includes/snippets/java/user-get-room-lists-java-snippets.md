@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IUserFindRoomListsCollectionPage findRoomLists = graphClient.me()
+UserFindRoomListsCollectionPage findRoomLists = graphClient.me()
 	.findRoomLists()
 	.buildRequest()
 	.get();

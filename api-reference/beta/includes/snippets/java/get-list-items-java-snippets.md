@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new QueryOption("expand", "fields(select=Name,Color,Quantity)"));
 
-IListItemCollectionPage items = graphClient.sites("{site-id}").lists("{list-id}").items()
+ListItemCollectionPage items = graphClient.sites("{site-id}").lists("{list-id}").items()
 	.buildRequest( requestOptions )
 	.get();
 

@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new QueryOption("filter", "bundle/album ne null"));
 
-IDriveItemCollectionPage bundles = graphClient.drive().bundles()
+DriveItemCollectionPage bundles = graphClient.drive().bundles()
 	.buildRequest( requestOptions )
 	.filter("bundle/album ne null")
 	.get();

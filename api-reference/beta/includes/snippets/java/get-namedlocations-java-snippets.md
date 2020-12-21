@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-INamedLocationCollectionPage namedLocations = graphClient.identity().conditionalAccess().namedLocations()
+NamedLocationCollectionPage namedLocations = graphClient.identity().conditionalAccess().namedLocations()
 	.buildRequest()
 	.filter("microsoft.graph.countryNamedLocation/countriesAndRegions/any(c: c eq 'CA')")
 	.get();

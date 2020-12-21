@@ -10,7 +10,7 @@ LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new QueryOption("startDateTime", "2020-06-01T00:00:00Z"));
 requestOptions.add(new QueryOption("endDateTime", "2020-06-10T00:00:00Z"));
 
-IEventDeltaCollectionPage delta = graphClient.me().calendars("AAMkADI5M1BbeAAA=").calendarView()
+EventDeltaCollectionPage delta = graphClient.me().calendars("AAMkADI5M1BbeAAA=").calendarView()
 	.delta()
 	.buildRequest( requestOptions )
 	.get();

@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IEducationUserCollectionWithReferencesPage teachers = graphClient.education().classes("11023").teachers()
+EducationUserCollectionWithReferencesPage teachers = graphClient.education().classes("11023").teachers()
 	.buildRequest()
 	.get();
 

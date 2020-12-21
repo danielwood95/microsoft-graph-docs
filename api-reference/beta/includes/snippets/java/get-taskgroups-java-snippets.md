@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IOutlookTaskGroupCollectionPage taskGroups = graphClient.me().outlook().taskGroups()
+OutlookTaskGroupCollectionPage taskGroups = graphClient.me().outlook().taskGroups()
 	.buildRequest()
 	.get();
 

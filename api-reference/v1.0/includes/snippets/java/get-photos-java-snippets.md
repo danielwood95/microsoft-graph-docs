@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IProfilePhotoCollectionPage photos = graphClient.groups("{id}").photos()
+ProfilePhotoCollectionPage photos = graphClient.groups("{id}").photos()
 	.buildRequest()
 	.get();
 

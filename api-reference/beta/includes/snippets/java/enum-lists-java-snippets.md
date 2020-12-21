@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IListCollectionPage lists = graphClient.sites("{site-id}").lists()
+ListCollectionPage lists = graphClient.sites("{site-id}").lists()
 	.buildRequest()
 	.get();
 

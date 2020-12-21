@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IReportRootGetCredentialUsageSummaryCollectionPage getCredentialUsageSummary = graphClient.reports()
+ReportRootGetCredentialUsageSummaryCollectionPage getCredentialUsageSummary = graphClient.reports()
 	.getCredentialUsageSummary("D30")
 	.buildRequest()
 	.filter("feature eq 'registration'")

@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IRiskDetectionCollectionPage riskDetections = graphClient.identityProtection().riskDetections()
+RiskDetectionCollectionPage riskDetections = graphClient.identityProtection().riskDetections()
 	.buildRequest()
 	.filter("riskEventType eq 'unfamiliarFeatures' or riskLevel eq 'medium'")
 	.get();

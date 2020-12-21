@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IMailFolderDeltaCollectionPage delta = graphClient.me().mailFolders()
+MailFolderDeltaCollectionPage delta = graphClient.me().mailFolders()
 	.delta()
 	.buildRequest()
 	.get();

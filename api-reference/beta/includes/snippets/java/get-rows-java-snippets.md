@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IWorkbookRangeViewCollectionPage rows = graphClient.drive().root().workbook().worksheets("{id}")
+WorkbookRangeViewCollectionPage rows = graphClient.drive().root().workbook().worksheets("{id}")
 	.range("A1:Z10")
 	.visibleView().rows()
 	.buildRequest()

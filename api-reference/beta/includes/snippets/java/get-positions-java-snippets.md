@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IWorkPositionCollectionPage positions = graphClient.me().profile().positions()
+WorkPositionCollectionPage positions = graphClient.me().profile().positions()
 	.buildRequest()
 	.get();
 

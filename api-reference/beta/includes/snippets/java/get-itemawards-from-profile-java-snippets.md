@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IPersonAwardCollectionPage awards = graphClient.me().profile().awards()
+PersonAwardCollectionPage awards = graphClient.me().profile().awards()
 	.buildRequest()
 	.get();
 

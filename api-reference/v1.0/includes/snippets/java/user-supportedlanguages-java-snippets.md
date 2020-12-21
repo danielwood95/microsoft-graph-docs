@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IOutlookUserSupportedLanguagesCollectionPage supportedLanguages = graphClient.me().outlook()
+OutlookUserSupportedLanguagesCollectionPage supportedLanguages = graphClient.me().outlook()
 	.supportedLanguages()
 	.buildRequest()
 	.get();

@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-DirectoryObject directoryObject = graphClient.users("{id|userPrincipalName}").manager()
+DirectoryObject directoryObject = graphClient.contacts("{id}").manager()
 	.buildRequest()
 	.get();
 

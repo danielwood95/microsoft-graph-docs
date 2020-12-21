@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new HeaderOption("Prefer", "odata.maxpagesize=2"));
 
-IContactDeltaCollectionPage delta = graphClient.me().contactFolders("{id}").contacts()
+ContactDeltaCollectionPage delta = graphClient.me().contactFolders("{id}").contacts()
 	.delta()
 	.buildRequest( requestOptions )
 	.select("displayName")

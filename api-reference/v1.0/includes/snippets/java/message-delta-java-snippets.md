@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new HeaderOption("Prefer", "odata.maxpagesize=2"));
 
-IMessageDeltaCollectionPage delta = graphClient.me().mailFolders("{id}").messages()
+MessageDeltaCollectionPage delta = graphClient.me().mailFolders("{id}").messages()
 	.delta()
 	.buildRequest( requestOptions )
 	.get();

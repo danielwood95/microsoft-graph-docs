@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IContactFolderCollectionPage childFolders = graphClient.me().contactFolders("{id}").childFolders()
+ContactFolderCollectionPage childFolders = graphClient.me().contactFolders("{id}").childFolders()
 	.buildRequest()
 	.get();
 

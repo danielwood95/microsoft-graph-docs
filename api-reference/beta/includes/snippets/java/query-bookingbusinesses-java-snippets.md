@@ -9,7 +9,7 @@ IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationPro
 LinkedList<Option> requestOptions = new LinkedList<Option>();
 requestOptions.add(new QueryOption("query", "Adventure"));
 
-IBookingBusinessCollectionPage bookingBusinesses = graphClient.bookingBusinesses()
+BookingBusinessCollectionPage bookingBusinesses = graphClient.bookingBusinesses()
 	.buildRequest( requestOptions )
 	.get();
 

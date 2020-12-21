@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IPasswordAuthenticationMethodCollectionPage passwordMethods = graphClient.me().authentication().passwordMethods()
+PasswordAuthenticationMethodCollectionPage passwordMethods = graphClient.me().authentication().passwordMethods()
 	.buildRequest()
 	.get();
 

@@ -6,7 +6,7 @@ description: "Automatically generated file. DO NOT MODIFY"
 
 IGraphServiceClient graphClient = GraphServiceClient.builder().authenticationProvider( authProvider ).buildClient();
 
-IDirectorySettingTemplateCollectionPage directorySettingTemplates = graphClient.directorySettingTemplates()
+DirectorySettingTemplateCollectionPage directorySettingTemplates = graphClient.directorySettingTemplates()
 	.buildRequest()
 	.get();
 
